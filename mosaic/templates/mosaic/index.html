@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>モザイク処理アプリ</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    {% if img.mosaic_image %}
+        <p>{{ img.image.name }}</p>
+        <img src="{{ img.mosaic_image.url }}" alt="image">
+    {% endif %}
+    {% if text %}
+        <h3>{{ text }}</h3>
+    {% endif %}
+</body>
+</html>
